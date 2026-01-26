@@ -1,0 +1,26 @@
+# Site settings
+title: Lynn Conway Memorial Scholarship
+description: >-
+  The Lynn Conway Memorial Scholarship at the University of Michigan honors
+  a pioneer in computer science and supports LGBTQ+ students in STEM through
+  oSTEM at U-M.
+url: "https://conwayscholarship.org"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+
+# Optional: Enable future posts
+future: true
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-seo-tag

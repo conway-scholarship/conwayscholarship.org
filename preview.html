@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Lynn Conway Memorial Scholarship at the University of Michigan honors a pioneer in computer science and supports LGBTQ+ students in STEM.">
+    <title>Home | Lynn Conway Memorial Scholarship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+/* CSS Variables - University of Michigan Brand Colors */
+:root {
+    /* Primary Palette */
+    --um-maize: #FFCB05;
+    --um-blue: #00274C;
+    /* Secondary Palette */
+    --um-tappan-red: #9A3324;
+    --um-ross-orange: #D86018;
+    --um-rackham-green: #75988d;
+    --um-wave-field-green: #A5A508;
+    --um-taubman-teal: #00B2A9;
+    --um-arboretum-blue: #2F65A7;
+    --um-a2-amethyst: #702082;
+    --um-matthaei-violet: #575294;
+    --um-umma-tan: #CFC096;
+    --um-burton-tower-beige: #9B9A6D;
+    --um-angell-hall-ash: #989C97;
+    --um-law-quad-stone: #655A52;
+    /* Light Mode (Default) */
+    --um-blue-light: var(--um-arboretum-blue);
+    --text-primary: #333333;
+    --text-secondary: var(--um-law-quad-stone);
+    --bg-white: #FFFFFF;
+    --bg-light: #F8F9FA;
+    --bg-alt: #F0F4F8;
+    --border-color: #DEE2E6;
+    --shadow: 0 2px 8px rgba(0, 39, 76, 0.1);
+    --shadow-hover: 0 4px 16px rgba(0, 39, 76, 0.15);
+    --transition: 0.3s ease;
+    --quote-bg: #FFFFFF;
+    --heading-color: var(--um-blue);
+    --heading-color-alt: var(--um-arboretum-blue);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #E8E8E8;
+        --text-secondary: #B0B0B0;
+        --bg-white: #1A1A2E;
+        --bg-light: #16213E;
+        --bg-alt: #0F3460;
+        --border-color: #3A3A5C;
+        --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+        --quote-bg: #1E1E32;
+        --um-blue-light: #5A9BD5;
+        --heading-color: #E8E8E8;
+        --heading-color-alt: #7EB8E8;
+    }
+    body, p, li { color: #E8E8E8; }
+    h1, h2, h4, .section h2, .content-block h2 { color: #E8E8E8 !important; }
+    h3, .section h3, .content-block h3 { color: #7EB8E8 !important; }
+    .hero { background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%); }
+    .hero h1 { color: #FFFFFF !important; }
+    .tagline { color: rgba(255, 255, 255, 0.95); }
+    .bio-intro, .bio-intro p { color: #E8E8E8; }
+    .section p, .content-block p { color: #E8E8E8; }
+    .portrait img { opacity: 0.95; }
+    .portrait figcaption { color: #B0B0B0; }
+    .portrait figcaption a { color: #B0B0B0; }
+    blockquote.quote p { color: #E8E8E8; }
+    blockquote.quote cite { color: #B0B0B0; }
+    .recipients-placeholder { color: #B0B0B0; }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* Accessibility: Skip Link */
+.skip-link { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); background-color: var(--um-maize); color: var(--um-blue); padding: 0.75rem 1.5rem; font-weight: 700; text-decoration: none; border-radius: 0 0 4px 4px; z-index: 10000; transition: top 0.2s ease; }
+.skip-link:focus { top: 0; outline: 3px solid var(--um-blue); outline-offset: 2px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+a:focus, button:focus { outline: 3px solid var(--um-maize); outline-offset: 2px; }
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible { outline: 3px solid var(--um-maize); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+body {
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--bg-white);
+}
+
+h1, h2, h4 {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    color: var(--heading-color);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+h3 {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    color: var(--heading-color-alt);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+h1 { font-size: 2.75rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; position: relative; padding-bottom: 0.75rem; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background-color: var(--um-maize); }
+h3 { font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+p { margin-bottom: 1.25rem; }
+a { color: var(--um-blue-light); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--um-blue); text-decoration: underline; }
+
+sup { font-size: 0.75rem; line-height: 0; position: relative; vertical-align: baseline; top: -0.4em; }
+sup a { font-weight: 600; color: var(--um-blue-light); text-decoration: none; padding: 0 0.1rem; }
+sup a:hover { color: var(--um-blue); text-decoration: underline; }
+
+.site-header { background-color: var(--um-blue); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: var(--shadow); }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+.site-title { font-family: 'Source Serif Pro', Georgia, serif; font-size: 1.25rem; font-weight: 600; color: #FFFFFF; text-decoration: none; }
+.site-title:hover { color: var(--um-maize); text-decoration: none; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: #FFFFFF; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all var(--transition); }
+.nav-links a:hover { color: var(--um-maize); text-decoration: none; border-bottom-color: var(--um-maize); }
+.nav-links li:nth-child(1) a:hover { color: var(--um-maize); border-bottom-color: var(--um-maize); }
+.nav-links li:nth-child(2) a:hover { color: var(--um-taubman-teal); border-bottom-color: var(--um-taubman-teal); }
+.nav-links li:nth-child(3) a:hover { color: var(--um-ross-orange); border-bottom-color: var(--um-ross-orange); }
+.nav-links li:nth-child(4) a:hover { color: var(--um-rackham-green); border-bottom-color: var(--um-rackham-green); }
+.mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
+.mobile-menu-toggle span { display: block; width: 25px; height: 3px; background-color: #FFFFFF; transition: all var(--transition); }
+
+.hero { background: linear-gradient(135deg, var(--um-blue) 0%, var(--um-blue-light) 100%); color: #FFFFFF; padding: 10rem 2rem 6rem; text-align: center; margin-top: 70px; }
+.hero-content { max-width: 800px; margin: 0 auto; }
+.hero h1 { color: #FFFFFF; margin-bottom: 1.5rem; }
+.tagline { font-size: 1.35rem; opacity: 0.95; margin-bottom: 2.5rem; line-height: 1.6; }
+.cta-button { display: inline-block; background-color: var(--um-maize); color: var(--um-blue); padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 700; border-radius: 4px; text-decoration: none; transition: all var(--transition); box-shadow: var(--shadow); }
+.cta-button:hover { background-color: #E6B700; transform: translateY(-2px); box-shadow: var(--shadow-hover); text-decoration: none; color: var(--um-blue); }
+
+.section { padding: 5rem 2rem; }
+.section.alt-bg { background-color: var(--bg-alt); }
+.content-block { max-width: 800px; margin: 0 auto; }
+.bio-intro { font-size: 1.2rem; border-left: 4px solid var(--um-maize); padding-left: 1.5rem; margin-bottom: 2rem; }
+
+.portrait { float: right; margin: 0 0 1.5rem 2rem; max-width: 300px; }
+.portrait img { width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow); }
+.portrait figcaption { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.75rem; line-height: 1.4; }
+.portrait figcaption a { color: var(--text-secondary); text-decoration: underline; }
+
+blockquote.quote { background-color: var(--bg-white); border-left: 4px solid var(--um-maize); border-radius: 0 8px 8px 0; padding: 1.5rem 2rem; margin: 1.5rem 0; box-shadow: var(--shadow); }
+blockquote.quote:nth-of-type(1) { border-left-color: var(--um-ross-orange); }
+blockquote.quote:nth-of-type(2) { border-left-color: var(--um-taubman-teal); }
+blockquote.quote:nth-of-type(3) { border-left-color: var(--um-arboretum-blue); }
+blockquote.quote:nth-of-type(4) { border-left-color: var(--um-a2-amethyst); }
+blockquote.quote p { font-size: 1.1rem; font-style: italic; margin-bottom: 0.75rem; color: var(--text-primary); }
+blockquote.quote cite { font-size: 0.9rem; color: var(--text-secondary); font-style: normal; }
+
+.recipients-placeholder { background-color: var(--bg-light); border: 1px dashed var(--border-color); border-radius: 8px; padding: 2rem; text-align: center; color: var(--text-secondary); }
+.contact-info { background-color: var(--bg-white); border-radius: 8px; padding: 1.5rem 2rem; margin: 2rem 0; box-shadow: var(--shadow); border-left: 4px solid var(--um-maize); }
+.contact-info p { margin-bottom: 0; }
+
+.site-footer { background-color: var(--um-blue); color: var(--bg-white); padding: 3rem 2rem; text-align: center; }
+.footer-content { max-width: 800px; margin: 0 auto; }
+.footer-content p { margin-bottom: 1rem; opacity: 0.9; font-size: 0.95rem; }
+.footer-links a { color: var(--um-maize); }
+.footer-links a:hover { color: var(--bg-white); }
+.copyright { margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7; }
+
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .nav-container { padding: 0 1rem; }
+    .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background-color: var(--um-blue); flex-direction: column; padding: 1rem; gap: 0; box-shadow: var(--shadow); }
+    .nav-links.active { display: flex; }
+    .nav-links li { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .nav-links a { display: block; padding: 1rem; }
+    .mobile-menu-toggle { display: flex; }
+    .hero { padding: 8rem 1.5rem 4rem; }
+    .tagline { font-size: 1.15rem; }
+    .section { padding: 3rem 1.5rem; }
+}
+@media (max-width: 600px) {
+    .portrait { float: none; margin: 0 auto 1.5rem; max-width: 250px; }
+}
+@media (max-width: 480px) {
+    .site-title { font-size: 1rem; }
+    h1 { font-size: 1.75rem; }
+    .cta-button { padding: 0.875rem 2rem; font-size: 1rem; }
+}
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <a href="#" class="site-title">Lynn Conway Memorial Scholarship</a>
+            <ul class="nav-links" id="nav-menu" role="menubar">
+                <li role="none"><a href="#legacy" role="menuitem">Legacy</a></li>
+                <li role="none"><a href="#in-her-words" role="menuitem">In Her Words</a></li>
+                <li role="none"><a href="#scholarship" role="menuitem">Scholarship</a></li>
+                <li role="none"><a href="#donate" role="menuitem">Donate</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+<section class="hero">
+    <div class="hero-content">
+        <h1>The Lynn Conway Memorial Scholarship</h1>
+        <p class="tagline">Honoring a pioneer in computer science and champion of LGBTQ+ inclusion in STEM</p>
+        <a href="#legacy" class="cta-button">Learn About Her Legacy</a>
+    </div>
+</section>
+
+<section id="legacy" class="section">
+    <h2>Lynn Conway's Legacy</h2>
+    <div class="content-block">
+        <figure class="portrait">
+            <img src="assets/images/lynn-conway-2006.jpg"
+                 alt="Lynn Conway in July 2006"
+                 width="300">
+            <figcaption>Lynn Conway, July 2006. Photo by Charles Rogers, <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.5</a>, via <a href="https://commons.wikimedia.org/wiki/File:Lynn_Conway_July_2006.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.</figcaption>
+        </figure>
+
+        <div class="bio-intro">
+            <p>Lynn Ann Conway (1938–2024) was a trailblazing computer scientist, electrical engineer, inventor, and transgender rights advocate whose contributions fundamentally transformed the semiconductor industry and modern computing.<sup><a href="https://news.engin.umich.edu/2024/06/the-legacy-of-lynn-conway-chip-design-pioneer-and-transgender-rights-advocate/" target="_blank" rel="noopener noreferrer">[1]</a></sup></p>
+        </div>
+
+        <h3>Revolutionizing Chip Design</h3>
+        <p>At Xerox PARC in the late 1970s, Conway collaborated with Carver Mead to develop simplified VLSI (Very Large Scale Integration) design methods that democratized chip design. Their groundbreaking textbook, <em>Introduction to VLSI Systems</em>, became the standard reference in the field and was taught at nearly 120 universities by 1983.<sup><a href="https://www.britannica.com/biography/Lynn-Conway" target="_blank" rel="noopener noreferrer">[2]</a></sup></p>
+
+        <p>As Professor Valeria Bertacco of the University of Michigan noted, "My field would not exist without Lynn Conway... Conway's work developed algorithms that enabled software to arrange millions, and later billions, of transistors on a chip."<sup><a href="https://news.engin.umich.edu/2024/06/the-legacy-of-lynn-conway-chip-design-pioneer-and-transgender-rights-advocate/" target="_blank" rel="noopener noreferrer">[1]</a></sup></p>
+
+        <h3>Early Innovations at IBM</h3>
+        <p>While at IBM in the 1960s, Conway invented generalized dynamic instruction handling, a key advancement in out-of-order execution that is used by most modern computer processors to improve performance.<sup><a href="https://en.wikipedia.org/wiki/Lynn_Conway" target="_blank" rel="noopener noreferrer">[3]</a></sup></p>
+
+        <h3>Advocacy and Courage</h3>
+        <p>After being fired by IBM in 1968 for revealing her intention to transition, Conway rebuilt her career and went on to become one of the most influential computer scientists of her generation.<sup><a href="https://computerhistory.org/blog/in-memoriam-lynn-conway-1938-2024/" target="_blank" rel="noopener noreferrer">[4]</a></sup> In 1999, she came out publicly and became an outspoken advocate for transgender rights and women in STEM fields. She played a key role in updating the IEEE Code of Conduct to prohibit discrimination based on sexual orientation, gender identity, and gender expression.<sup><a href="https://spectrum.ieee.org/chip-design-innovator-lynn-conway" target="_blank" rel="noopener noreferrer">[5]</a></sup></p>
+
+        <h3>University of Michigan</h3>
+        <p>Conway joined the University of Michigan in 1985 as Professor of Electrical Engineering and Computer Science and Associate Dean of Engineering. She contributed to numerous research and instructional initiatives and was known as "a visionary thinker who helped the College see over the horizon." She retired as Professor Emerita in 1998 but remained an influential part of the community—advising faculty members, speaking at events, and mentoring students.<sup><a href="https://news.engin.umich.edu/2024/06/the-legacy-of-lynn-conway-chip-design-pioneer-and-transgender-rights-advocate/" target="_blank" rel="noopener noreferrer">[1]</a></sup></p>
+
+        <h3>Recognition</h3>
+        <p>Conway's achievements earned her election to the <a href="https://www.nae.edu/29aborredPeople/MemorialsaTributes/304629.aspx" target="_blank" rel="noopener noreferrer">National Academy of Engineering</a>, induction into the <a href="https://www.invent.org/inductees/lynn-conway" target="_blank" rel="noopener noreferrer">National Inventors Hall of Fame</a>, the <a href="https://www.computer.org/profiles/lynn-conway/" target="_blank" rel="noopener noreferrer">IEEE Computer Pioneer Award</a>, the <a href="https://computerhistory.org/profile/lynn-conway/" target="_blank" rel="noopener noreferrer">Computer History Museum Fellow Award</a>, the James Clerk Maxwell Medal, and numerous other honors. She held five U.S. patents and received five honorary degrees.<sup><a href="https://www.britannica.com/biography/Lynn-Conway" target="_blank" rel="noopener noreferrer">[2]</a></sup></p>
+    </div>
+</section>
+
+<section id="in-her-words" class="section alt-bg">
+    <h2>In Her Own Words</h2>
+    <div class="content-block">
+        <p>Throughout her life, Lynn Conway shared her experiences and wisdom through interviews and her personal website. Here are some of her reflections:</p>
+
+        <blockquote class="quote">
+            <p>"I think the most exciting moments, the things that I was proud of because I knew there were so many latent possibilities in something, is when a cool idea occurred, just having a cool idea occur."</p>
+            <cite>— Computer History Museum Oral History Interview, 2014<sup><a href="https://archive.computerhistory.org/resources/access/text/2014/05/102746864-05-01-acc.pdf" target="_blank" rel="noopener noreferrer">[6]</a></sup></cite>
+        </blockquote>
+
+        <blockquote class="quote">
+            <p>"The making of a chip is to some extent, or a large extent, it's a printing process. You have authors that do creative works that get printed—using a set of masks, just like a set of printing plates. And then you print it; and you're actually printing little machinery."</p>
+            <cite>— Computer History Museum Oral History Interview, 2014<sup><a href="https://archive.computerhistory.org/resources/access/text/2014/05/102746864-05-01-acc.pdf" target="_blank" rel="noopener noreferrer">[6]</a></sup></cite>
+        </blockquote>
+
+        <blockquote class="quote">
+            <p>"From the 1970s to 1999 I was recognized as breaking the gender barrier in the computer science field as a woman, but in 2000 it became the transgender barrier I was breaking."</p>
+            <cite>— Forbes Interview<sup><a href="https://spectrum.ieee.org/chip-design-innovator-lynn-conway" target="_blank" rel="noopener noreferrer">[5]</a></sup></cite>
+        </blockquote>
+
+        <blockquote class="quote">
+            <p>"I realized I had to come out more widely... But then I realized that I could use this platform to address transgender issues."</p>
+            <cite>— The Michigan Daily<sup><a href="https://www.michigandaily.com/news/academics/ibm-fired-u-m-professor-lynn-conway-for-coming-out-as-trans-in-1968-52-years-later-the-company-apologized/" target="_blank" rel="noopener noreferrer">[7]</a></sup></cite>
+        </blockquote>
+
+        <p>Conway described herself in 2014 as "a perennial beginner, never afraid to take on learning how to do new things."<sup><a href="https://computerhistory.org/blog/in-memoriam-lynn-conway-1938-2024/" target="_blank" rel="noopener noreferrer">[4]</a></sup></p>
+
+        <p>As Valeria Bertacco, U-M Vice Provost for Engaged Learning, remembered: "She overcame so much, but she didn't spend her life being angry about the past. She was always focused on the next innovation."<sup><a href="https://news.engin.umich.edu/2024/06/the-legacy-of-lynn-conway-chip-design-pioneer-and-transgender-rights-advocate/" target="_blank" rel="noopener noreferrer">[1]</a></sup></p>
+    </div>
+</section>
+
+<section id="scholarship" class="section">
+    <h2>The Scholarship</h2>
+    <div class="content-block">
+        <p>The Lynn Conway Memorial Scholarship honors her legacy by supporting LGBTQ+ students pursuing degrees in science, technology, engineering, and mathematics at the University of Michigan.</p>
+
+        <h3>Eligibility</h3>
+        <p>This scholarship is awarded to students who are members of the University of Michigan chapter of <a href="https://ostem.org/page/umich-ann-arbor" target="_blank" rel="noopener noreferrer">oSTEM</a> (Out in Science, Technology, Engineering, and Mathematics), a professional society dedicated to LGBTQ+ individuals within the STEM community.</p>
+
+        <h3>About oSTEM at U-M</h3>
+        <p>oSTEM at the University of Michigan is a social support and professional development organization that welcomes all students while focusing resources on LGBTQ+ STEM undergraduates. The chapter provides community, mentorship, and professional development opportunities for students navigating their identities in STEM fields.</p>
+    </div>
+</section>
+
+<section id="recipients" class="section alt-bg">
+    <h2>Scholarship Recipients</h2>
+    <div class="content-block">
+        <p>We are proud to recognize the outstanding students who have received the Lynn Conway Memorial Scholarship.</p>
+
+        <div class="recipients-placeholder">
+            <p><em>Recipient information coming soon.</em></p>
+        </div>
+    </div>
+</section>
+
+<section id="donate" class="section">
+    <h2>Support the Scholarship</h2>
+    <div class="content-block">
+        <p>Your contribution helps ensure that Lynn Conway's legacy continues to inspire and support the next generation of LGBTQ+ leaders in STEM.</p>
+
+        <div class="contact-info">
+            <p><strong><a href="https://giving.umich.edu/um/w/lynn-a.-conway-memorial-scholarship-fund-703207" target="_blank" rel="noopener noreferrer">Donate to the Lynn A. Conway Memorial Scholarship Fund</a></strong></p>
+        </div>
+
+        <p>For Donor Advised Funds, stock transfers, or other forms of gifts, please contact Amanda Dempsey at <a href="mailto:aslaybau@umich.edu">aslaybau@umich.edu</a>.</p>
+    </div>
+</section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            <p>The Lynn A. Conway Memorial Scholarship is administered by the University of Michigan College of Engineering.</p>
+            <p class="footer-links">
+                <a href="https://engin.umich.edu/" target="_blank" rel="noopener noreferrer">U-M College of Engineering<span class="visually-hidden"> (opens in new tab)</span></a> |
+                <a href="https://ostem.org/page/umich-ann-arbor" target="_blank" rel="noopener noreferrer">oSTEM at U-M<span class="visually-hidden"> (opens in new tab)</span></a> |
+                <a href="https://ai.eecs.umich.edu/people/conway/conway.html" target="_blank" rel="noopener noreferrer">Lynn Conway's Website<span class="visually-hidden"> (opens in new tab)</span></a>
+            </p>
+            <p class="copyright">&copy; 2026 Friends of the Conway Scholarship</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle with ARIA support
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.focus();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.setAttribute('tabindex', '-1');
+                    target.focus();
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
