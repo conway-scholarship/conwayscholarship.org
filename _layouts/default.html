@@ -45,10 +45,55 @@
                 <a href="https://ai.eecs.umich.edu/people/conway/conway.html" target="_blank" rel="noopener noreferrer">Lynn Conway's Website<span class="visually-hidden"> (opens in new tab)</span></a>
             </p>
             <p class="copyright">&copy; {{ 'now' | date: "%Y" }} Friends of the Conway Scholarship</p>
+            <div class="theme-toggle" role="group" aria-label="Theme selection">
+                <button type="button" class="theme-btn" data-theme="light" aria-pressed="false">Light</button>
+                <button type="button" class="theme-btn" data-theme="dark" aria-pressed="false">Dark</button>
+                <button type="button" class="theme-btn" data-theme="auto" aria-pressed="true">Auto</button>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Theme toggle functionality
+        (function() {
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            const root = document.documentElement;
+
+            // Get saved theme or default to 'auto'
+            const savedTheme = localStorage.getItem('theme') || 'auto';
+
+            function applyTheme(theme) {
+                // Remove existing theme classes
+                root.classList.remove('theme-light', 'theme-dark');
+
+                if (theme === 'light') {
+                    root.classList.add('theme-light');
+                } else if (theme === 'dark') {
+                    root.classList.add('theme-dark');
+                }
+                // 'auto' uses no class, relying on prefers-color-scheme
+
+                // Update button states
+                themeButtons.forEach(btn => {
+                    const isPressed = btn.dataset.theme === theme;
+                    btn.setAttribute('aria-pressed', isPressed);
+                });
+
+                // Save preference
+                localStorage.setItem('theme', theme);
+            }
+
+            // Apply saved theme on load
+            applyTheme(savedTheme);
+
+            // Add click handlers
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    applyTheme(btn.dataset.theme);
+                });
+            });
+        })();
+
         // Mobile menu toggle with ARIA support
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinks = document.querySelector('.nav-links');

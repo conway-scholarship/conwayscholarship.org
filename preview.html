@@ -43,9 +43,9 @@
     --heading-color-alt: var(--um-arboretum-blue);
 }
 
-/* Dark Mode */
+/* Dark Mode - Auto */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not(.theme-light) {
         --text-primary: #E8E8E8;
         --text-secondary: #B0B0B0;
         --bg-white: #1A1A2E;
@@ -59,21 +59,49 @@
         --heading-color: #E8E8E8;
         --heading-color-alt: #7EB8E8;
     }
-    body, p, li { color: #E8E8E8; }
-    h1, h2, h4, .section h2, .content-block h2 { color: #E8E8E8 !important; }
-    h3, .section h3, .content-block h3 { color: #7EB8E8 !important; }
-    .hero { background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%); }
-    .hero h1 { color: #FFFFFF !important; }
-    .tagline { color: rgba(255, 255, 255, 0.95); }
-    .bio-intro, .bio-intro p { color: #E8E8E8; }
-    .section p, .content-block p { color: #E8E8E8; }
-    .portrait img { opacity: 0.95; }
-    .portrait figcaption { color: #B0B0B0; }
-    .portrait figcaption a { color: #B0B0B0; }
-    blockquote.quote p { color: #E8E8E8; }
-    blockquote.quote cite { color: #B0B0B0; }
-    .recipients-placeholder { color: #B0B0B0; }
+    :root:not(.theme-light) body, :root:not(.theme-light) p, :root:not(.theme-light) li { color: #E8E8E8; }
+    :root:not(.theme-light) h1, :root:not(.theme-light) h2, :root:not(.theme-light) h4 { color: #E8E8E8 !important; }
+    :root:not(.theme-light) h3 { color: #7EB8E8 !important; }
+    :root:not(.theme-light) .hero { background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%); }
+    :root:not(.theme-light) .hero h1 { color: #FFFFFF !important; }
+    :root:not(.theme-light) .tagline { color: rgba(255, 255, 255, 0.95); }
+    :root:not(.theme-light) .bio-intro, :root:not(.theme-light) .bio-intro p { color: #E8E8E8; }
+    :root:not(.theme-light) .section p, :root:not(.theme-light) .content-block p { color: #E8E8E8; }
+    :root:not(.theme-light) .portrait figcaption { color: #B0B0B0; }
+    :root:not(.theme-light) .portrait figcaption a { color: #B0B0B0; }
+    :root:not(.theme-light) blockquote.quote p { color: #E8E8E8; }
+    :root:not(.theme-light) blockquote.quote cite { color: #B0B0B0; }
+    :root:not(.theme-light) .recipients-placeholder { color: #B0B0B0; }
 }
+
+/* Dark Mode - Forced */
+:root.theme-dark {
+    --text-primary: #E8E8E8;
+    --text-secondary: #B0B0B0;
+    --bg-white: #1A1A2E;
+    --bg-light: #16213E;
+    --bg-alt: #0F3460;
+    --border-color: #3A3A5C;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --quote-bg: #1E1E32;
+    --um-blue-light: #5A9BD5;
+    --heading-color: #E8E8E8;
+    --heading-color-alt: #7EB8E8;
+}
+.theme-dark body, .theme-dark p, .theme-dark li { color: #E8E8E8; }
+.theme-dark h1, .theme-dark h2, .theme-dark h4 { color: #E8E8E8 !important; }
+.theme-dark h3 { color: #7EB8E8 !important; }
+.theme-dark .hero { background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%); }
+.theme-dark .hero h1 { color: #FFFFFF !important; }
+.theme-dark .tagline { color: rgba(255, 255, 255, 0.95); }
+.theme-dark .bio-intro, .theme-dark .bio-intro p { color: #E8E8E8; }
+.theme-dark .section p, .theme-dark .content-block p { color: #E8E8E8; }
+.theme-dark .portrait figcaption { color: #B0B0B0; }
+.theme-dark .portrait figcaption a { color: #B0B0B0; }
+.theme-dark blockquote.quote p { color: #E8E8E8; }
+.theme-dark blockquote.quote cite { color: #B0B0B0; }
+.theme-dark .recipients-placeholder { color: #B0B0B0; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -122,6 +150,13 @@ sup a:hover { color: var(--um-blue); text-decoration: underline; }
 .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 70px; }
 .site-title { font-family: 'Source Serif Pro', Georgia, serif; font-size: 1.25rem; font-weight: 600; color: #FFFFFF; text-decoration: none; }
 .site-title:hover { color: var(--um-maize); text-decoration: none; }
+/* Theme Toggle */
+.theme-toggle { display: flex; background-color: rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 2px; }
+.footer-content .theme-toggle { margin-top: 1.5rem; justify-content: center; }
+.theme-btn { background: none; border: none; color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 3px; transition: all var(--transition); }
+.theme-btn:hover { color: #FFFFFF; }
+.theme-btn[aria-pressed="true"] { background-color: var(--um-maize); color: var(--um-blue); }
+
 .nav-links { display: flex; list-style: none; gap: 2rem; }
 .nav-links a { color: #FFFFFF; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all var(--transition); }
 .nav-links a:hover { color: var(--um-maize); text-decoration: none; border-bottom-color: var(--um-maize); }
@@ -332,10 +367,55 @@ blockquote.quote cite { font-size: 0.9rem; color: var(--text-secondary); font-st
                 <a href="https://ai.eecs.umich.edu/people/conway/conway.html" target="_blank" rel="noopener noreferrer">Lynn Conway's Website<span class="visually-hidden"> (opens in new tab)</span></a>
             </p>
             <p class="copyright">&copy; 2026 Friends of the Conway Scholarship</p>
+            <div class="theme-toggle" role="group" aria-label="Theme selection">
+                <button type="button" class="theme-btn" data-theme="light" aria-pressed="false">Light</button>
+                <button type="button" class="theme-btn" data-theme="dark" aria-pressed="false">Dark</button>
+                <button type="button" class="theme-btn" data-theme="auto" aria-pressed="true">Auto</button>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Theme toggle functionality
+        (function() {
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            const root = document.documentElement;
+
+            // Get saved theme or default to 'auto'
+            const savedTheme = localStorage.getItem('theme') || 'auto';
+
+            function applyTheme(theme) {
+                // Remove existing theme classes
+                root.classList.remove('theme-light', 'theme-dark');
+
+                if (theme === 'light') {
+                    root.classList.add('theme-light');
+                } else if (theme === 'dark') {
+                    root.classList.add('theme-dark');
+                }
+                // 'auto' uses no class, relying on prefers-color-scheme
+
+                // Update button states
+                themeButtons.forEach(btn => {
+                    const isPressed = btn.dataset.theme === theme;
+                    btn.setAttribute('aria-pressed', isPressed);
+                });
+
+                // Save preference
+                localStorage.setItem('theme', theme);
+            }
+
+            // Apply saved theme on load
+            applyTheme(savedTheme);
+
+            // Add click handlers
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    applyTheme(btn.dataset.theme);
+                });
+            });
+        })();
+
         // Mobile menu toggle with ARIA support
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinks = document.querySelector('.nav-links');

@@ -43,9 +43,9 @@
     --heading-color-alt: var(--um-arboretum-blue);
 }
 
-/* Dark Mode */
+/* Dark Mode - Auto (follows system preference) */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not(.theme-light) {
         --text-primary: #E8E8E8;
         --text-secondary: #B0B0B0;
         --bg-white: #1A1A2E;
@@ -63,6 +63,26 @@
         --heading-color: #E8E8E8;
         --heading-color-alt: #7EB8E8;
     }
+}
+
+/* Dark Mode - Forced via toggle */
+:root.theme-dark {
+    --text-primary: #E8E8E8;
+    --text-secondary: #B0B0B0;
+    --bg-white: #1A1A2E;
+    --bg-light: #16213E;
+    --bg-alt: #0F3460;
+    --border-color: #3A3A5C;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --quote-bg: #1E1E32;
+
+    /* Adjust link colors for dark mode readability */
+    --um-blue-light: #5A9BD5;
+
+    /* Heading colors for dark mode */
+    --heading-color: #E8E8E8;
+    --heading-color-alt: #7EB8E8;
 }
 
 /* Reset and Base Styles */
@@ -261,6 +281,35 @@ sup a:hover {
 .site-title:hover {
     color: var(--um-maize);
     text-decoration: none;
+}
+
+/* Theme Toggle Widget */
+.theme-toggle {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all var(--transition);
+}
+
+.theme-btn:hover {
+    color: #FFFFFF;
+}
+
+.theme-btn[aria-pressed="true"] {
+    background-color: var(--um-maize);
+    color: var(--um-blue);
 }
 
 .nav-links {
@@ -538,6 +587,12 @@ blockquote.quote cite {
     opacity: 0.7;
 }
 
+/* Footer Theme Toggle */
+.footer-content .theme-toggle {
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -626,109 +681,136 @@ blockquote.quote cite {
     }
 }
 
-/* Dark Mode Specific Overrides */
+/* Dark Mode Specific Overrides - Auto (system preference) */
 @media (prefers-color-scheme: dark) {
-    /* Ensure all body text is light */
-    body,
-    p,
-    li {
+    :root:not(.theme-light) body,
+    :root:not(.theme-light) p,
+    :root:not(.theme-light) li {
         color: var(--text-primary);
     }
 
-    /* Force all headings to use light colors */
-    h1, h2, h4,
-    .section h2,
-    .content-block h2 {
+    :root:not(.theme-light) h1,
+    :root:not(.theme-light) h2,
+    :root:not(.theme-light) h4,
+    :root:not(.theme-light) .section h2,
+    :root:not(.theme-light) .content-block h2 {
         color: var(--heading-color) !important;
     }
 
-    h3,
-    .section h3,
-    .content-block h3 {
+    :root:not(.theme-light) h3,
+    :root:not(.theme-light) .section h3,
+    :root:not(.theme-light) .content-block h3 {
         color: var(--heading-color-alt) !important;
     }
 
-    /* Bio intro text */
-    .bio-intro,
-    .bio-intro p {
+    :root:not(.theme-light) .bio-intro,
+    :root:not(.theme-light) .bio-intro p {
         color: var(--text-primary);
     }
 
-    /* Section text */
-    .section p,
-    .content-block p {
+    :root:not(.theme-light) .section p,
+    :root:not(.theme-light) .content-block p {
         color: var(--text-primary);
     }
 
-    /* Portrait caption */
-    .portrait figcaption {
+    :root:not(.theme-light) .portrait figcaption {
         color: var(--text-secondary);
     }
 
-    .portrait figcaption a {
+    :root:not(.theme-light) .portrait figcaption a {
         color: var(--text-secondary);
     }
 
-    /* Blockquote text */
-    blockquote.quote p {
+    :root:not(.theme-light) blockquote.quote p {
         color: var(--text-primary);
     }
 
-    blockquote.quote cite {
+    :root:not(.theme-light) blockquote.quote cite {
         color: var(--text-secondary);
     }
 
-    .nav-links li:nth-child(1) a:hover {
-        color: var(--um-maize);
-        border-bottom-color: var(--um-maize);
-    }
-
-    /* Ensure CTA button remains readable */
-    .cta-button {
-        background-color: var(--um-maize);
-        color: var(--um-blue);
-    }
-
-    .cta-button:hover {
-        background-color: #E6B700;
-        color: var(--um-blue);
-    }
-
-    /* Hero section - maintain gradient with adjusted colors */
-    .hero {
+    :root:not(.theme-light) .hero {
         background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%);
     }
 
-    .hero h1 {
-        color: #FFFFFF;
-    }
-
-    /* Tagline in hero */
-    .tagline {
-        color: rgba(255, 255, 255, 0.95);
-    }
-
-    /* Adjust image for dark mode */
-    .portrait img {
-        opacity: 0.95;
-    }
-
-    /* Recipients placeholder */
-    .recipients-placeholder {
+    :root:not(.theme-light) .recipients-placeholder {
         background-color: var(--bg-light);
         border-color: var(--border-color);
         color: #B0B0B0;
     }
 
-    /* Contact info card */
-    .contact-info {
+    :root:not(.theme-light) .contact-info {
         background-color: var(--quote-bg);
     }
 
-    /* Recipient cards */
-    .recipient {
+    :root:not(.theme-light) .recipient {
         background-color: var(--quote-bg);
     }
+}
+
+/* Dark Mode Specific Overrides - Forced via toggle */
+.theme-dark body,
+.theme-dark p,
+.theme-dark li {
+    color: var(--text-primary);
+}
+
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h4,
+.theme-dark .section h2,
+.theme-dark .content-block h2 {
+    color: var(--heading-color) !important;
+}
+
+.theme-dark h3,
+.theme-dark .section h3,
+.theme-dark .content-block h3 {
+    color: var(--heading-color-alt) !important;
+}
+
+.theme-dark .bio-intro,
+.theme-dark .bio-intro p {
+    color: var(--text-primary);
+}
+
+.theme-dark .section p,
+.theme-dark .content-block p {
+    color: var(--text-primary);
+}
+
+.theme-dark .portrait figcaption {
+    color: var(--text-secondary);
+}
+
+.theme-dark .portrait figcaption a {
+    color: var(--text-secondary);
+}
+
+.theme-dark blockquote.quote p {
+    color: var(--text-primary);
+}
+
+.theme-dark blockquote.quote cite {
+    color: var(--text-secondary);
+}
+
+.theme-dark .hero {
+    background: linear-gradient(135deg, #0A1628 0%, #1A3A5C 100%);
+}
+
+.theme-dark .recipients-placeholder {
+    background-color: var(--bg-light);
+    border-color: var(--border-color);
+    color: #B0B0B0;
+}
+
+.theme-dark .contact-info {
+    background-color: var(--quote-bg);
+}
+
+.theme-dark .recipient {
+    background-color: var(--quote-bg);
 }
 
 /* Accessibility: Reduced Motion */
@@ -749,7 +831,8 @@ blockquote.quote cite {
     .site-footer,
     .cta-button,
     .mobile-menu-toggle,
-    .skip-link {
+    .skip-link,
+    .theme-toggle {
         display: none;
     }
 
