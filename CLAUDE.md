@@ -1,4 +1,30 @@
-# CLAUDE.md - Instructions for AI Assistants
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Development
+
+Jekyll static site. Local development:
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Site available at `http://localhost:4000`. No tests or linters are configured.
+
+## Deployment
+
+Push to `main` to deploy via GitHub Pages to `https://conwayscholarship.org`.
+
+## Architecture
+
+Single-page Jekyll site with sections (Legacy, Scholarship, Recipients, Donate) all in `index.html` using the `default` layout.
+
+- `_layouts/default.html` — Full HTML shell with header, footer, and all JavaScript inline (theme toggle, mobile menu, smooth scroll). Theme system uses localStorage with `theme-light`/`theme-dark` classes on `<html>`, falling back to `prefers-color-scheme` for "auto" mode.
+- `index.html` — Page content as HTML sections with Jekyll front matter. Biographical content uses footnote-style `<sup>` citations linking to external sources.
+- `assets/css/style.css` — Styles using U-M brand colors with dark mode support via both `prefers-color-scheme` media queries and explicit theme classes.
+- `_config.yml` — Uses `jekyll-seo-tag` plugin.
 
 ## Communication Style
 
@@ -22,13 +48,4 @@
 
 ## Project Context
 
-This repository contains the website for the Lynn Conway Memorial Scholarship at the University of Michigan. The scholarship is awarded to members of the UM chapter of oSTEM (Out in Science, Technology, Engineering, and Mathematics).
-
-### Key Files
-- `index.html` - Main content with Jekyll front matter
-- `_layouts/default.html` - Page template
-- `assets/css/style.css` - Styles using U-M brand colors
-- `_config.yml` - Jekyll configuration for GitHub Pages
-
-### Deployment
-The site is deployed via GitHub Pages. Push to the main branch to deploy.
+Website for the Lynn Conway Memorial Scholarship at the University of Michigan, awarded to members of the UM chapter of oSTEM (Out in Science, Technology, Engineering, and Mathematics). Lynn Conway (1938–2024) was a computer scientist, engineer, and transgender rights advocate.
