@@ -401,6 +401,35 @@ sup a:hover {
     line-height: 1.6;
 }
 
+.hero-video {
+    max-width: 960px;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-video .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.hero-video .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.video-error {
+    color: var(--um-maize);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
 .cta-button {
     display: inline-block;
     background-color: var(--um-maize);
