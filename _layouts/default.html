@@ -37,6 +37,11 @@
         {{ content }}
     </main>
 
+    <aside id="donate-cta" class="donate-cta" hidden aria-label="Donate">
+        <p class="donate-cta-text">Support the next generation of LGBTQ+ STEM leaders</p>
+        <a href="https://giving.umich.edu/um/w/lynn-a.-conway-memorial-scholarship-fund-703207" target="_blank" rel="noopener noreferrer" class="donate-cta-btn">Donate Now</a>
+    </aside>
+
     <footer class="site-footer" role="contentinfo">
         <div class="footer-content">
             <p>The Lynn A. Conway Memorial Scholarship is administered by the University of Michigan College of Engineering.</p>
@@ -115,6 +120,32 @@
                 menuToggle.focus();
             }
         });
+
+        // Persistent donate CTA visibility
+        (function() {
+            var cta = document.getElementById('donate-cta');
+            var hero = document.querySelector('.hero');
+            var donate = document.getElementById('donate');
+            var heroVisible = true;
+            var donateVisible = false;
+
+            function updateCta() {
+                cta.hidden = heroVisible || donateVisible;
+            }
+
+            var heroObs = new IntersectionObserver(function(entries) {
+                heroVisible = entries[0].isIntersecting;
+                updateCta();
+            }, { threshold: 0 });
+
+            var donateObs = new IntersectionObserver(function(entries) {
+                donateVisible = entries[0].isIntersecting;
+                updateCta();
+            }, { threshold: 0 });
+
+            if (hero) heroObs.observe(hero);
+            if (donate) donateObs.observe(donate);
+        })();
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
