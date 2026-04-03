@@ -1,11 +1,20 @@
 # Site settings
-title: Lynn Conway Memorial Scholarship
+title: Lynn A. Conway Memorial Scholarship
 description: >-
-  The Lynn Conway Memorial Scholarship at the University of Michigan honors
-  a pioneer in computer science and supports LGBTQ+ students in STEM through
-  oSTEM at U-M.
+  The Lynn A. Conway Memorial Scholarship supports LGBTQ+ students in STEM
+  at the University of Michigan, honoring the legacy of a pioneering computer
+  scientist and transgender rights advocate.
 url: "https://conwayscholarship.org"
 baseurl: ""
+lang: en_US
+
+# Open Graph / Social
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/lynn-conway-um-portrait-cropped.jpg
+
 
 # Build settings
 markdown: kramdown
