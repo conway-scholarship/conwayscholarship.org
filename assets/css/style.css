@@ -610,6 +610,19 @@ blockquote.quote cite {
     margin-bottom: 0;
 }
 
+/* Scholarship Section CTA */
+.scholarship-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.scholarship-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
 /* Persistent Donate CTA */
 .donate-cta {
     position: fixed;
