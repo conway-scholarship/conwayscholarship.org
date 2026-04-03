@@ -228,6 +228,14 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Body text links must be underlined to not rely on color alone (WCAG 1.4.1) */
+.content-block a,
+.bio-intro a,
+.contact-info a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* Citations */
 sup {
     font-size: 0.75rem;
