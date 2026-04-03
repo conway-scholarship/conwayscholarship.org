@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}Lynn A. Conway Memorial Scholarship</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     {% seo %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Scholarship",
+        "name": "Lynn A. Conway Memorial Scholarship",
+        "description": "A scholarship supporting LGBTQ+ students in STEM at the University of Michigan, honoring the legacy of computer scientist and transgender rights advocate Lynn Conway.",
+        "url": "https://conwayscholarship.org",
+        "provider": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Michigan College of Engineering",
+            "url": "https://engin.umich.edu/"
+        },
+        "about": {
+            "@type": "Person",
+            "name": "Lynn A. Conway",
+            "birthDate": "1938",
+            "deathDate": "2024",
+            "jobTitle": "Professor Emerita of Electrical Engineering and Computer Science",
+            "affiliation": {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Michigan"
+            },
+            "sameAs": [
+                "https://en.wikipedia.org/wiki/Lynn_Conway",
+                "https://ai.eecs.umich.edu/people/conway/conway.html"
+            ]
+        }
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>

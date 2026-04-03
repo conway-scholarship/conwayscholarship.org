@@ -4,6 +4,7 @@ description: >-
   The Lynn A. Conway Memorial Scholarship supports LGBTQ+ students in STEM
   at the University of Michigan, honoring the legacy of a pioneering computer
   scientist and transgender rights advocate.
+tagline: Honoring a pioneer in computer science and champion of LGBTQ+ inclusion in STEM
 url: "https://conwayscholarship.org"
 baseurl: ""
 lang: en_US
@@ -26,6 +27,7 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENSE
+  - preview.html
 
 # Optional: Enable future posts
 future: true
@@ -33,3 +35,4 @@ future: true
 # Plugins (GitHub Pages supported)
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
