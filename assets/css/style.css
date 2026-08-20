@@ -506,6 +506,11 @@ sup a:hover {
     text-decoration: underline;
 }
 
+.caption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
 /* Blockquotes */
 blockquote.quote {
     background-color: var(--quote-bg);
